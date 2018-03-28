@@ -2,11 +2,45 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
 
+
+    <parent>
+        <groupId>org.sonatype.oss</groupId>
+        <artifactId>oss-parent</artifactId>
+        <version>9</version>
+    </parent>
+
+
+    <modelVersion>4.0.0</modelVersion>
     <groupId>groupId</groupId>
     <artifactId>forest10-tool</artifactId>
     <version>1.0-SNAPSHOT</version>
+
+
+    <licenses>
+        <license>
+            <name>The Apache Software License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+    <!--写你自己的，这只是个例子-->
+    <scm>
+        <url>https://github.com/Forest10</url>
+        <connection>https://github.com/Forest10/forest10-tool.git</connection>
+        <developerConnection>https://github.com/Forest10</developerConnection>
+    </scm>
+    <!--写你自己的，这只是个例子-->
+    <developers>
+        <developer>
+            <name>Forest10</name>
+            <email>forest10@forest10.com</email>
+            <url>https://github.com/Forest10</url>
+        </developer>
+    </developers>
+
+
     <dependencies>
 
         <!-- 发邮件 -->
@@ -50,4 +84,16 @@
             </plugin>
         </plugins>
     </build>
+    <distributionManagement>
+        <repository>
+            <id>releases</id>
+            <name>release</name>
+            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2</url>
+        </repository>
+        <snapshotRepository>
+            <id>snapshots</id>
+            <name>snapshot</name>
+            <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
+        </snapshotRepository>
+    </distributionManagement>
 </project>

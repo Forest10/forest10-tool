@@ -1,8 +1,8 @@
 package forest10.wxpay;
 
 
-import com.forest10.wxpay.constants.WXPayConstants;
-import com.forest10.wxpay.constants.WXPayConstants.SignType;
+import forest10.wxpay.constants.WXPayConstants;
+import forest10.wxpay.constants.WXPayConstants.SignType;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
