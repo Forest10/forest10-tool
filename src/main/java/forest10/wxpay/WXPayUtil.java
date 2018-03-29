@@ -21,7 +21,12 @@ import java.io.StringWriter;
 import java.security.MessageDigest;
 import java.util.*;
 
-
+/**
+ * 微信支付所需
+ *
+ * @author Forest10
+ * 2017/12/6
+ */
 public class WXPayUtil {
 
 

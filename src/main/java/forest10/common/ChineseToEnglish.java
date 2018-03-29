@@ -14,12 +14,18 @@ import net.sourceforge.pinyin4j.format.exception.BadHanyuPinyinOutputFormatCombi
 public class ChineseToEnglish {
 
 
-	// 将汉字转换为全拼
+	/**
+	 * 将汉字转换为全拼
+	 *
+	 * @param src
+	 * @return
+	 * @throws BadHanyuPinyinOutputFormatCombination
+	 */
 	public static String getPingYin(String src) throws BadHanyuPinyinOutputFormatCombination {
 
-		char[] t1 = null;
+		char[] t1;
 		t1 = src.toCharArray();
-		String[] t2 = null;
+		String[] t2;
 		HanyuPinyinOutputFormat t3 = new HanyuPinyinOutputFormat();
 
 		t3.setCaseType(HanyuPinyinCaseType.LOWERCASE);
@@ -40,7 +46,12 @@ public class ChineseToEnglish {
 		return t4;
 	}
 
-	// 返回中文的首字母
+	/**
+	 * 返回中文的首字母
+	 *
+	 * @param str
+	 * @return
+	 */
 	public static String getPinYinHeadChar(String str) {
 
 		String convert = "";
