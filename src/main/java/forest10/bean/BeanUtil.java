@@ -1,6 +1,7 @@
 package forest10.bean;
 
 
+
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.List;
@@ -13,9 +14,9 @@ import java.util.stream.Stream;
 public class BeanUtil {
 
 	/**
-	 * @param entityClass
+	 * @param entityClass 类
 	 * @param fieldName   属性名
-	 * @return
+	 * @return boolean
 	 */
 	private static boolean fieldInEntity(Object entityClass, String fieldName) {
 		Class cls = entityClass.getClass();
@@ -32,9 +33,9 @@ public class BeanUtil {
 	/**
 	 * 拿到 Bean 里面field对应的值
 	 *
-	 * @param entityClass
+	 * @param entityClass 类
 	 * @param fieldName   属性名
-	 * @return
+	 * @return field对应的值
 	 * @throws InvocationTargetException
 	 * @throws IllegalAccessException
 	 */

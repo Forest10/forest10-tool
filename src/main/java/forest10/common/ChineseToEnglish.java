@@ -18,7 +18,7 @@ public class ChineseToEnglish {
 	 * 将汉字转换为全拼
 	 *
 	 * @param src
-	 * @return
+	 * @return 全拼
 	 * @throws BadHanyuPinyinOutputFormatCombination
 	 */
 	public static String getPingYin(String src) throws BadHanyuPinyinOutputFormatCombination {
@@ -50,21 +50,21 @@ public class ChineseToEnglish {
 	 * 返回中文的首字母
 	 *
 	 * @param str
-	 * @return
+	 * @return 首字母
 	 */
 	public static String getPinYinHeadChar(String str) {
 
-		String convert = "";
+		StringBuilder convert = new StringBuilder();
 		for (int j = 0; j < str.length(); j++) {
 			char word = str.charAt(j);
 			String[] pinyinArray = PinyinHelper.toHanyuPinyinStringArray(word);
 			if (pinyinArray != null) {
-				convert += pinyinArray[0].charAt(0);
+				convert.append(pinyinArray[0].charAt(0));
 			} else {
-				convert += word;
+				convert.append(word);
 			}
 		}
-		return convert;
+		return convert.toString();
 	}
 
 

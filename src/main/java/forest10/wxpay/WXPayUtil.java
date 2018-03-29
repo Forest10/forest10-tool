@@ -10,8 +10,11 @@ import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.OutputKeys;
 import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerConfigurationException;
+import javax.xml.transform.TransformerException;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
@@ -70,9 +73,10 @@ public class WXPayUtil {
 	 *
 	 * @param data Map类型数据
 	 * @return XML格式的字符串
-	 * @throws Exception
+	 * @throws ParserConfigurationException      解析错误
+	 * @throws TransformerConfigurationException 解析错误
 	 */
-	public static String mapToXml(Map<String, String> data) throws Exception {
+	public static String mapToXml(Map<String, String> data) throws ParserConfigurationException, TransformerException {
 		DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
 		DocumentBuilder documentBuilder = documentBuilderFactory.newDocumentBuilder();
 		org.w3c.dom.Document document = documentBuilder.newDocument();
@@ -137,7 +141,7 @@ public class WXPayUtil {
 	 * @param xmlStr XML格式数据
 	 * @param key    API密钥
 	 * @return 签名是否正确
-	 * @throws Exception
+	 * @throws Exception 错误
 	 */
 	public static boolean isSignatureValid(String xmlStr, String key) throws Exception {
 		Map<String, String> data = xmlToMap(xmlStr);
@@ -154,7 +158,7 @@ public class WXPayUtil {
 	 * @param data Map类型数据
 	 * @param key  API密钥
 	 * @return 签名是否正确
-	 * @throws Exception
+	 * @throws Exception 错误
 	 */
 	public static boolean isSignatureValid(Map<String, String> data, String key) throws Exception {
 		return isSignatureValid(data, key, SignType.MD5);
@@ -167,7 +171,7 @@ public class WXPayUtil {
 	 * @param key      API密钥
 	 * @param signType 签名方式
 	 * @return 签名是否正确
-	 * @throws Exception
+	 * @throws Exception 错误
 	 */
 	public static boolean isSignatureValid(Map<String, String> data, String key, SignType signType) throws Exception {
 		if (!data.containsKey(WXPayConstants.FIELD_SIGN)) {
@@ -251,7 +255,7 @@ public class WXPayUtil {
 	 * @param data 待处理数据
 	 * @param key  密钥
 	 * @return 加密结果
-	 * @throws Exception
+	 * @throws Exception 错误
 	 */
 	public static String HMACSHA256(String data, String key) throws Exception {
 		Mac sha256_HMAC = Mac.getInstance("HmacSHA256");
@@ -266,16 +270,9 @@ public class WXPayUtil {
 	}
 
 	/**
-	 * 日志
-	 *
-	 * @return
-	 */
-
-
-	/**
 	 * 获取当前时间戳，单位秒
 	 *
-	 * @return
+	 * @return 当前时间戳，单位秒
 	 */
 	public static long getCurrentTimestamp() {
 		return System.currentTimeMillis() / 1000;
@@ -284,7 +281,7 @@ public class WXPayUtil {
 	/**
 	 * 获取当前时间戳，单位毫秒
 	 *
-	 * @return
+	 * @return 当前时间戳，单位毫秒
 	 */
 	public static long getCurrentTimestampMs() {
 		return System.currentTimeMillis();
@@ -293,7 +290,7 @@ public class WXPayUtil {
 	/**
 	 * 生成 uuid， 即用来标识一笔单，也用做 nonce_str
 	 *
-	 * @return
+	 * @return nonce_str
 	 */
 	public static String generateUUID() {
 		return UUID.randomUUID().toString().replaceAll("-", "").substring(0, 32);
