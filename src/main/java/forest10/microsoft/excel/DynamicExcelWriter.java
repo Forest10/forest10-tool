@@ -22,7 +22,7 @@ import java.util.List;
 /**
  * 描述:
  * support Dynamic Head and Content
- *
+ * 但是此工具为集合完数据之后才导出.不支持流式导出!!!!
  * @author Forest10
  * @date 2018/03/29 16:05
  */
