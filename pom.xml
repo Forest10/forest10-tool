@@ -15,7 +15,7 @@
     <packaging>jar</packaging>
 
     <name>ossrh-Forest10</name>
-    <description>A demo for deployment to the Central Repository via OSSRH</description>
+    <description>A tool for deployment to the Central Repository via OSSRH</description>
     <url>https://github.com/Forest10</url>
     <licenses>
         <license>
@@ -51,12 +51,13 @@
 
 
     <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <argLine>-Dfile.encoding=UTF-8</argLine>
         <poi.version>3.17</poi.version>
         <guava.version>24.1-jre</guava.version>
         <pinyin4j.version>2.5.1</pinyin4j.version>
         <javax.mail.version>1.6.0</javax.mail.version>
         <commons-lang3.version>3.7</commons-lang3.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
     <dependencies>
