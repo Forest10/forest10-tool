@@ -11,11 +11,11 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.forest10</groupId>
     <artifactId>forest10-tool</artifactId>
-    <version>1.0.5</version>
+    <version>1.0.7</version>
     <packaging>jar</packaging>
 
     <name>ossrh-Forest10</name>
-    <description>A tool for deployment to the Central Repository via OSSRH</description>
+    <description>A tool for deployment with More Efficiency</description>
     <url>https://github.com/Forest10</url>
     <licenses>
         <license>
