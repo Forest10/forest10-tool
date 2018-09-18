@@ -57,10 +57,38 @@
         <pinyin4j.version>2.5.1</pinyin4j.version>
         <javax.mail.version>1.6.0</javax.mail.version>
         <commons-lang3.version>3.7</commons-lang3.version>
+        <mybatis.version>3.4.6</mybatis.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
     <dependencies>
+        <!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-api -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>1.8.0-beta2</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.slf4j/jcl-over-slf4j -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>jcl-over-slf4j</artifactId>
+            <version>1.8.0-beta2</version>
+            <scope>runtime</scope>
+        </dependency>
+        <!--Apache log4j redirect to slf4j -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>log4j-over-slf4j</artifactId>
+            <version>1.8.0-beta2</version>
+            <scope>runtime</scope>
+        </dependency>
+        <!--Java Util Logging redirect to slf4j -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>jul-to-slf4j</artifactId>
+            <version>1.8.0-beta2</version>
+            <scope>runtime</scope>
+        </dependency>
 
         <!-- 发邮件 -->
         <dependency>
@@ -119,6 +147,17 @@
             <version>1.5</version>
         </dependency>
         <!--apache csv:Excel 导出-->
+
+        <!-- DB -->
+
+        <!-- mybatis -->
+        <dependency>
+            <groupId>org.mybatis</groupId>
+            <artifactId>mybatis</artifactId>
+            <version>${mybatis.version}</version>
+        </dependency>
+
+        <!-- DB -->
 
     </dependencies>
 
