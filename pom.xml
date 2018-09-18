@@ -67,7 +67,6 @@
             <artifactId>slf4j-api</artifactId>
             <version>1.8.0-beta2</version>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/org.slf4j/jcl-over-slf4j -->
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>jcl-over-slf4j</artifactId>
