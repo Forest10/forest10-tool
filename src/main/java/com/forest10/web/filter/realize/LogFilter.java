@@ -37,7 +37,7 @@ public class LogFilter extends OncePerRequestFilter {
 	private static final int MAX_CACHE_LEN = 2 * 1024 * 1024;
 	private static final int INIT_CACHE_LEN = 512 * 1024;
 	private static final int LIMIT_BODY_LENGTH = 2000;
-	private static final String LOG_FMT = "[%s %s] user[%s %s] header[%s] req[%s] resp[%s] time[%sms]";
+	private static final String LOG_FMT = "method[%s %s] user[%s %s] header[%s] req[%s] resp[%s] time[%sms]";
 	private String[] excludeUris;
 
 	@Override
