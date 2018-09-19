@@ -28,9 +28,9 @@ public class DateUtil {
 	 */
 	public static Date convertStr2Date(String strDate) {
 		if (strDate.contains(":")) {
-			return LocalDateTimeToDate(convertStr2LocalDateTime(strDate));
+			return localDateTimeToDate(convertStr2LocalDateTime(strDate));
 		}
-		return LocalDateToDate(convertStr2LocalDate(strDate));
+		return localDateToDate(convertStr2LocalDate(strDate));
 	}
 
 	/**
@@ -82,7 +82,7 @@ public class DateUtil {
 	/**
 	 * java.time.LocalDateTime --> java.util.Date
 	 */
-	public static Date LocalDateTimeToDate(LocalDateTime localDateTime) {
+	public static Date localDateTimeToDate(LocalDateTime localDateTime) {
 		Instant instant = localDateTime.atZone(ZONE).toInstant();
 		return Date.from(instant);
 	}
@@ -90,7 +90,7 @@ public class DateUtil {
 	/**
 	 * java.time.LocalDate --> java.util.Date
 	 */
-	public static Date LocalDateToDate(LocalDate localDate) {
+	public static Date localDateToDate(LocalDate localDate) {
 		Instant instant = localDate.atStartOfDay().atZone(ZONE).toInstant();
 		return Date.from(instant);
 	}

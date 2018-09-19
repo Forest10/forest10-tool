@@ -16,6 +16,8 @@ public abstract class BaseServiceProcessCallBack<T> {
 
 	/**
 	 * 执行待处理操作，比如模型的创建，修改，删除等
+	 *
+	 * @return T
 	 */
 	public abstract T process();
 

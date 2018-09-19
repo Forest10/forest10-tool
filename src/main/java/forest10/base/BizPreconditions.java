@@ -1,10 +1,5 @@
 package forest10.base;
 
-/**
- * @author Forest10
- * @date 2018/9/18 下午12:27
- */
-
 import com.google.common.collect.Iterables;
 import forest10.exception.BizException;
 

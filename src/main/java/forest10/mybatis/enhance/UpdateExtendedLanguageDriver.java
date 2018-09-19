@@ -13,9 +13,9 @@ import java.util.regex.Pattern;
 /**
  * 简化 update的XMLLanguageDriver
  *
- * @see https://stackoverflow.com/questions/3428742/how-to-use-annotations-with-ibatis-mybatis-for-an-in-query/29076097
  * @author Forest10
  * @date 2018/9/18 下午3:01
+ * @see https://stackoverflow.com/questions/3428742/how-to-use-annotations-with-ibatis-mybatis-for-an-in-query/29076097
  */
 public class UpdateExtendedLanguageDriver extends XMLLanguageDriver
 		implements LanguageDriver {

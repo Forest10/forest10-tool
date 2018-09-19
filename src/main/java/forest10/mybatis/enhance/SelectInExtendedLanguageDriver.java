@@ -10,9 +10,10 @@ import java.util.regex.Pattern;
 
 /**
  * 简化Select In的XMLLanguageDriver
- * @see https://stackoverflow.com/questions/3428742/how-to-use-annotations-with-ibatis-mybatis-for-an-in-query/29076097
+ *
  * @author Forest10
  * @date 2018/9/18 下午2:55
+ * @see https://stackoverflow.com/questions/3428742/how-to-use-annotations-with-ibatis-mybatis-for-an-in-query/29076097
  */
 public class SelectInExtendedLanguageDriver
 		extends XMLLanguageDriver implements LanguageDriver {
