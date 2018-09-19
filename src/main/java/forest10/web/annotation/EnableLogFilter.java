@@ -19,7 +19,8 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 public @interface EnableLogFilter {
 
-	String[] excludeUris() default {};
+	String[] excludeUris() default {"/favicon.ico"};
+
 
 }
 

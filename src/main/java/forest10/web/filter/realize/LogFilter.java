@@ -1,10 +1,5 @@
 package forest10.web.filter.realize;
 
-/**
- * @author Forest10
- * @date 2018/9/19 下午2:24
- */
-
 import com.google.common.base.Joiner;
 import com.google.common.collect.Maps;
 import forest10.web.filter.CachedHttpServletRequestWrapper;
