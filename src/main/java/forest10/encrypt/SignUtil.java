@@ -72,7 +72,7 @@ public class SignUtil {
 		signPairs.forEach(str -> signBeforeMd5.append(str).append("&"));
 		signBeforeMd5.deleteCharAt(signBeforeMd5.lastIndexOf("&"));
 
-		return MD5Util.MD5Encode(signBeforeMd5.toString()).toUpperCase();
+		return Md5Util.md5Encode(signBeforeMd5.toString()).toUpperCase();
 
 	}
 
