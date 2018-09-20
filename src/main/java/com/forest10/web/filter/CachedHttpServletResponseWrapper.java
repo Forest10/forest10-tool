@@ -13,39 +13,38 @@ import java.io.PrintWriter;
  */
 public class CachedHttpServletResponseWrapper extends HttpServletResponseWrapper implements CachedStreamEntity {
 
-	private CachedOutputStream cachedOutputStream;
-	private PrintWriter printWriter;
+    private CachedOutputStream cachedOutputStream;
+    private PrintWriter printWriter;
 
-	public CachedHttpServletResponseWrapper(HttpServletResponse cachedOutputStream, int initCacheSize, int maxCacheSize)
-			throws IOException {
-		super(cachedOutputStream);
-		this.cachedOutputStream = new CachedOutputStream(cachedOutputStream.getOutputStream(), initCacheSize, maxCacheSize);
-	}
+    public CachedHttpServletResponseWrapper(HttpServletResponse cachedOutputStream, int initCacheSize, int maxCacheSize)
+        throws IOException {
+        super(cachedOutputStream);
+        this.cachedOutputStream =
+            new CachedOutputStream(cachedOutputStream.getOutputStream(), initCacheSize, maxCacheSize);
+    }
 
-	@Override
-	public ServletOutputStream getOutputStream()
-			throws IOException {
-		return this.cachedOutputStream;
-	}
+    @Override
+    public ServletOutputStream getOutputStream() throws IOException {
+        return this.cachedOutputStream;
+    }
 
-	@Override
-	public CachedStream getCachedStream() {
-		return this.cachedOutputStream;
-	}
+    @Override
+    public CachedStream getCachedStream() {
+        return this.cachedOutputStream;
+    }
 
-	@Override
-	public PrintWriter getWriter()
-			throws IOException {
-		if (this.printWriter == null) {
-			this.printWriter = new PrintWriter(new OutputStreamWriter(this.cachedOutputStream, getCharacterEncoding()));
-		}
-		return this.printWriter;
-	}
+    @Override
+    public PrintWriter getWriter() throws IOException {
+        if (this.printWriter == null) {
+            this.printWriter = new PrintWriter(new OutputStreamWriter(this.cachedOutputStream, getCharacterEncoding()));
+        }
+        return this.printWriter;
+    }
 
-	@Override
-	public void flushStream() {
-		if (this.printWriter != null) {
-			this.printWriter.flush();
-		}
-	}
+    @Override
+    public void flushStream() {
+        if (this.printWriter != null) {
+            this.printWriter.flush();
+        }
+    }
 }

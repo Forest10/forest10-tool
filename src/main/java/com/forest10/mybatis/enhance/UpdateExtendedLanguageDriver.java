@@ -17,31 +17,29 @@ import java.util.regex.Pattern;
  * @date 2018/9/18 下午3:01
  * @see https://stackoverflow.com/questions/3428742/how-to-use-annotations-with-ibatis-mybatis-for-an-in-query/29076097
  */
-public class UpdateExtendedLanguageDriver extends XMLLanguageDriver
-		implements LanguageDriver {
-	private final Pattern inPattern = Pattern.compile("\\(#\\{(\\w+)\\}\\)");
+public class UpdateExtendedLanguageDriver extends XMLLanguageDriver implements LanguageDriver {
+    private final Pattern inPattern = Pattern.compile("\\(#\\{(\\w+)\\}\\)");
 
+    @Override
+    public SqlSource createSqlSource(Configuration configuration, String script, Class<?> parameterType) {
+        Matcher matcher = inPattern.matcher(script);
+        if (matcher.find()) {
+            StringBuffer ss = new StringBuffer();
+            ss.append("<set>");
 
-	@Override
-	public SqlSource createSqlSource(Configuration configuration, String script, Class<?> parameterType) {
-		Matcher matcher = inPattern.matcher(script);
-		if (matcher.find()) {
-			StringBuffer ss = new StringBuffer();
-			ss.append("<set>");
+            for (Field field : parameterType.getDeclaredFields()) {
+                String temp = "<if test=\"__field != null\">__column=#{__field},</if>";
+                ss.append(temp.replaceAll("__field", field.getName())
+                    .replaceAll("__column", CaseFormat.LOWER_CAMEL.to(CaseFormat.LOWER_UNDERSCORE, field.getName())));
+            }
 
-			for (Field field : parameterType.getDeclaredFields()) {
-				String temp = "<if test=\"__field != null\">__column=#{__field},</if>";
-				ss.append(temp.replaceAll("__field", field.getName())
-						.replaceAll("__column", CaseFormat.LOWER_CAMEL.to(CaseFormat.LOWER_UNDERSCORE, field.getName())));
-			}
+            ss.deleteCharAt(ss.lastIndexOf(","));
+            ss.append("</set>");
 
-			ss.deleteCharAt(ss.lastIndexOf(","));
-			ss.append("</set>");
+            script = matcher.replaceAll(ss.toString());
 
-			script = matcher.replaceAll(ss.toString());
-
-			script = "<script>" + script + "</script>";
-		}
-		return super.createSqlSource(configuration, script, parameterType);
-	}
+            script = "<script>" + script + "</script>";
+        }
+        return super.createSqlSource(configuration, script, parameterType);
+    }
 }

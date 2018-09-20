@@ -15,41 +15,33 @@ import java.util.List;
  */
 public interface LanguageDriverExample {
 
-	/**
-	 * 复杂版本 select
-	 *
-	 * @param userIds
-	 * @return
-	 */
-	@Select({"<script>",
-			"SELECT *",
-			"FROM user",
-			"WHERE id IN",
-			"<foreach item='item' index='index' collection='list'",
-			"open='(' separator=',' close=')'>",
-			"#{item}",
-			"</foreach>",
-			"</script>"})
-	List selectUsers(@Param("userIds") List<Integer> userIds);
+    /**
+     * 复杂版本 select
+     *
+     * @param userIds
+     * @return
+     */
+    @Select({"<script>", "SELECT *", "FROM user", "WHERE id IN", "<foreach item='item' index='index' collection='list'",
+                "open='(' separator=',' close=')'>", "#{item}", "</foreach>", "</script>"})
+    List selectUsers(@Param("userIds") List<Integer> userIds);
 
-	/**
-	 * 简化版本 Select IN
-	 *
-	 * @param userIds
-	 * @return
-	 */
-	@Lang(value = SelectInExtendedLanguageDriver.class)
-	List selectUsersUseAnnotation(@Param("userIds") List<Integer> userIds);
+    /**
+     * 简化版本 Select IN
+     *
+     * @param userIds
+     * @return
+     */
+    @Lang(value = SelectInExtendedLanguageDriver.class)
+    List selectUsersUseAnnotation(@Param("userIds") List<Integer> userIds);
 
-	/**
-	 * 简化版本 Update
-	 *
-	 * @param user
-	 * @return
-	 */
-	@Update("UPDATE user (#{user}) WHERE id =#{userId}")
-	@Lang(UpdateExtendedLanguageDriver.class)
-	int updateUser(User user);
-
+    /**
+     * 简化版本 Update
+     *
+     * @param user
+     * @return
+     */
+    @Update("UPDATE user (#{user}) WHERE id =#{userId}")
+    @Lang(UpdateExtendedLanguageDriver.class)
+    int updateUser(User user);
 
 }

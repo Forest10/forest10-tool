@@ -5,7 +5,7 @@ package com.forest10.web.filter;
  * @date 2018/9/19 下午2:17
  */
 public abstract interface CachedStreamEntity {
-	public abstract CachedStream getCachedStream();
+    public abstract CachedStream getCachedStream();
 
-	public abstract void flushStream();
+    public abstract void flushStream();
 }

@@ -12,6 +12,6 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.METHOD)
 public @interface SelectAllForbidden {
-	//错误提示信息
-	String message() default "can`t invoke this method,because SELECT_ALL IS Forbidden!";
+    //错误提示信息
+    String message() default "can`t invoke this method,because SELECT_ALL IS Forbidden!";
 }

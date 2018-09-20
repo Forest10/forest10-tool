@@ -8,5 +8,5 @@ import java.io.Closeable;
  */
 
 public abstract interface CachedStream extends Closeable {
-	public abstract byte[] getCached();
+    public abstract byte[] getCached();
 }

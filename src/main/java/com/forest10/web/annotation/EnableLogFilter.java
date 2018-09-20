@@ -3,11 +3,7 @@ package com.forest10.web.annotation;
 import com.forest10.web.conf.LogFilterConf;
 import org.springframework.context.annotation.Import;
 
-import java.lang.annotation.Documented;
-import java.lang.annotation.ElementType;
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
-import java.lang.annotation.Target;
+import java.lang.annotation.*;
 
 /**
  * @author Forest10
@@ -19,8 +15,7 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 public @interface EnableLogFilter {
 
-	String[] excludeUris() default {"/favicon.ico"};
-
+    String[] excludeUris() default {"/favicon.ico"};
 
 }
 

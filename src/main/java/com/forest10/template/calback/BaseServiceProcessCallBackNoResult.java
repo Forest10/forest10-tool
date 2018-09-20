@@ -8,11 +8,11 @@ package com.forest10.template.calback;
  */
 public abstract class BaseServiceProcessCallBackNoResult extends BaseServiceProcessCallBack<Void> {
 
-	@Override
-	public Void process() {
-		processNoResult();
-		return null;
-	}
+    @Override
+    public Void process() {
+        processNoResult();
+        return null;
+    }
 
-	protected abstract void processNoResult();
+    protected abstract void processNoResult();
 }

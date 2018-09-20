@@ -6,9 +6,8 @@ package com.forest10.base;
  */
 public class Limitter {
 
-
-	/**
-	 * 最大并发数
-	 */
-	private static final Integer CONCURRENT_LIMIT_SIZE = 10_000;
+    /**
+     * 最大并发数
+     */
+    private static final Integer CONCURRENT_LIMIT_SIZE = 10_000;
 }
