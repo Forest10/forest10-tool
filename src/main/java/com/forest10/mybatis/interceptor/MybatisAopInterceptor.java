@@ -100,7 +100,7 @@ public class MybatisAopInterceptor implements Interceptor {
                     SelectAllPermit selectAllPermit = m.getAnnotation(SelectAllPermit.class);
                     if (Objects.isNull(selectAllPermit)) {
                         Preconditions.checkArgument(StringUtils.containsIgnoreCase(sql, WHERE),
-                            selectAllPermit.message());
+                            "can`t invoke this method,because SELECT_ALL IS Forbidden!if you confirm this method can be selectAll,add SelectAllPermit above it!");
                     }
                 }
             }

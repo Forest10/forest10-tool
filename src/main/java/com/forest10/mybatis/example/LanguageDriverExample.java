@@ -31,6 +31,7 @@ public interface LanguageDriverExample {
      * @param userIds
      * @return
      */
+    @Select("SELECT * FROM user WHERE id IN #{userIds}")
     @Lang(value = SelectInExtendedLanguageDriver.class)
     List selectUsersUseAnnotation(@Param("userIds") List<Integer> userIds);
 
