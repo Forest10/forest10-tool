@@ -12,6 +12,7 @@ public class FileCmd {
 
     /**
      * 得到某一个目录下所有的文件
+     *
      */
     public static List<File> getAllFile(List<File> fileList, String path,
         List<String> excludeFileName) {
