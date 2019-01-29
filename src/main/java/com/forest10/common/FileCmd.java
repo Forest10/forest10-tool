@@ -15,7 +15,7 @@ public class FileCmd {
     /**
      * 得到某一个目录下所有的文件, 使用getCanonicalFile规避系统间不同
      */
-    public static List<File> getInnerFile(List<File> fileList, File file,
+    public static List<File> getAllFile(List<File> fileList, File file,
         List<String> excludeFileName) throws IOException {
 
         if (Objects.isNull(file) || !file.exists()) {
@@ -29,7 +29,7 @@ public class FileCmd {
             if (innerFile.isFile()) {
                 fileList.add(innerFile);
             } else {
-                getInnerFile(fileList, innerFile.getCanonicalFile(), excludeFileName);
+                getAllFile(fileList, innerFile.getCanonicalFile(), excludeFileName);
             }
 
         }
