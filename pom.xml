@@ -7,7 +7,6 @@
         <artifactId>oss-parent</artifactId>
         <version>9</version>
     </parent>
-
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.forest10</groupId>
     <artifactId>forest10-tool</artifactId>
