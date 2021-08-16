@@ -31,11 +31,11 @@ public class BeanUtil {
 	 * desc优先级最高
 	 *
 	 * @param target
-	 * @param desc
+	 * @param des
 	 * @param <T>
 	 * @throws Exception
 	 */
-	public static <T> void mergeWithDescHighPriority(T target, T desc) throws Exception {
+	public static <T> void mergeWithDescHighPriority(T target, T des) throws Exception {
 		BeanInfo beanInfo = Introspector.getBeanInfo(target.getClass());
 
 		for (PropertyDescriptor descriptor : beanInfo.getPropertyDescriptors()) {
@@ -59,14 +59,14 @@ public class BeanUtil {
 			}
 			//获取desc现有field的值
 			Object desFieldValue = descriptorReadMethod.invoke(
-					desc);
+					des);
 			//获取当前field的类型
 			final Class<?> propertyType = descriptor.getPropertyType();
 			//处理map
 			if (Objects.equals(propertyType, Map.class)) {
 				//如果现在descMap为空,直接使用targetMap
 				if (Objects.isNull(desFieldValue)) {
-					descriptorWriteMethod.invoke(desc, targetFieldValue);
+					descriptorWriteMethod.invoke(des, targetFieldValue);
 					continue;
 				}
 				Map targetMap = (Map) targetFieldValue;
@@ -75,35 +75,35 @@ public class BeanUtil {
 				targetMap.forEach((k, v) -> {
 					descMap.putIfAbsent(k, v);
 				});
-				descriptorWriteMethod.invoke(desc, descMap);
+				descriptorWriteMethod.invoke(des, descMap);
 				continue;
 			}
 			//处理list
 			if (Objects.equals(propertyType, List.class)) {
 				//如果现在desc为空,直接使用targetCollection
 				if (Objects.isNull(desFieldValue)) {
-					descriptorWriteMethod.invoke(desc, targetFieldValue);
+					descriptorWriteMethod.invoke(des, targetFieldValue);
 					continue;
 				}
 				Collection targetCollection = (Collection) targetFieldValue;
 				Collection descCollection = (Collection) desFieldValue;
 				//把targetList全部addAll
 				descCollection.addAll(targetCollection);
-				descriptorWriteMethod.invoke(desc, descCollection.stream().distinct().collect(Collectors.toList()));
+				descriptorWriteMethod.invoke(des, descCollection.stream().distinct().collect(Collectors.toList()));
 				continue;
 			}
 			//处理Set
 			if (Objects.equals(propertyType, Set.class)) {
 				//如果现在desc为空,直接使用targetCollection
 				if (Objects.isNull(desFieldValue)) {
-					descriptorWriteMethod.invoke(desc, targetFieldValue);
+					descriptorWriteMethod.invoke(des, targetFieldValue);
 					continue;
 				}
 				Collection targetCollection = (Collection) targetFieldValue;
 				Collection descCollection = (Collection) desFieldValue;
 				//把targetSet全部addAll
 				descCollection.addAll(targetCollection);
-				descriptorWriteMethod.invoke(desc, descCollection);
+				descriptorWriteMethod.invoke(des, descCollection);
 				continue;
 			}
 
@@ -111,7 +111,7 @@ public class BeanUtil {
 			//如果不是基础类型(因为上面已经搞定了基础类型+list+set+map,所以理论上这个是一个Bean).递归调用merge
 			if (!propertyType.isPrimitive()) {
 				if (Objects.isNull(desFieldValue)) {
-					descriptorWriteMethod.invoke(desc, targetFieldValue);
+					descriptorWriteMethod.invoke(des, targetFieldValue);
 					continue;
 				}
 				//递归调用
@@ -123,7 +123,7 @@ public class BeanUtil {
 				continue;
 			}
 			//把target的值写入目标bean
-			descriptorWriteMethod.invoke(desc, targetFieldValue);
+			descriptorWriteMethod.invoke(des, targetFieldValue);
 
 		}
 	}
