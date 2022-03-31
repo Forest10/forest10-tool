@@ -56,7 +56,7 @@
         <javax.mail.version>1.6.0</javax.mail.version>
         <commons-lang3.version>3.7</commons-lang3.version>
         <mybatis.version>3.4.6</mybatis.version>
-        <spring.version>5.3.5</spring.version>
+        <spring.version>5.3.18</spring.version>
         <spring-boot.version>2.0.5.RELEASE</spring-boot.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
