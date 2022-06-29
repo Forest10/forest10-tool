@@ -50,7 +50,7 @@
 
     <properties>
         <argLine>-Dfile.encoding=UTF-8</argLine>
-        <poi.version>3.17</poi.version>
+        <poi.version>4.1.1</poi.version>
         <guava.version>29.0-jre</guava.version>
         <pinyin4j.version>2.5.1</pinyin4j.version>
         <javax.mail.version>1.6.0</javax.mail.version>
