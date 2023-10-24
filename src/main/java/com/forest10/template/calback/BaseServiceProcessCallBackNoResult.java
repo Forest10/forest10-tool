@@ -1,10 +1,9 @@
 package com.forest10.template.calback;
 
+
 /**
- * 业务处理回调
- *
  * @author Forest10
- * @date 2018/9/12 下午5:26
+ * @date 2022/4/24 15:32
  */
 public abstract class BaseServiceProcessCallBackNoResult extends BaseServiceProcessCallBack<Void> {
 
